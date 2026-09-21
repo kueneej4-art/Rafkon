@@ -46,8 +46,8 @@ from aiogram.types import (
 
 # ------------------------- НАСТРОЙКИ (заполните свои) -------------------------
 BOT_TOKEN = "8934537611:AAHNAh4V51lBJcLSo5VPvOSB-WMCdCb8MxA"
-WEBAPP_URL = "https://example.com/window-calculator.html"
-ADMIN_CHAT_ID = 0  # замените на свой числовой Telegram ID 275264199
+WEBAPP_URL = "https://heroic-heliotrope-1c15e3.netlify.app"
+ADMIN_CHAT_ID = 275264199
 # --------------------------------------------------------------------------
 
 logging.basicConfig(level=logging.INFO)
