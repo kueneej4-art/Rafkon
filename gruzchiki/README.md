@@ -29,8 +29,8 @@ Telegram вместе с расчётом из калькулятора и ме�
    **Base directory** = `gruzchiki`.
 2. **Site configuration → Environment variables**:
    - `TELEGRAM_BOT_TOKEN`: токен бота от @BotFather;
-   - `TELEGRAM_CHAT_ID`: числовой ID, куда слать заявки (узнать у @userinfobot;
-     несколько через запятую). Боту нужно хоть раз написать `/start`.
+   - `TELEGRAM_CHAT_ID`: необязательно, по умолчанию заявки идут на ID 275264199
+     (несколько через запятую). Боту нужно хоть раз написать `/start`.
 3. **Deploy**, затем отправьте тестовую заявку: она должна прийти в Telegram.
 4. Подключите домен (Domain management), HTTPS Netlify выдаст сам.
 

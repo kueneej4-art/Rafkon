@@ -1,7 +1,7 @@
 // Принимает заявку с сайта и пересылает её в Telegram.
 // Переменные окружения (Netlify → Site configuration → Environment variables):
 //   TELEGRAM_BOT_TOKEN — токен бота от @BotFather
-//   TELEGRAM_CHAT_ID   — id чата/группы, куда слать заявки (можно несколько через запятую)
+//   TELEGRAM_CHAT_ID   — id чата/группы, куда слать заявки (по умолчанию 275264199; можно несколько через запятую)
 
 const esc = (s) => String(s ?? "").replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c])).slice(0, 1000);
 
@@ -15,7 +15,7 @@ export default async (req) => {
   if (digits.length !== 11) return new Response("Bad phone", { status: 400 });
 
   const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chats = (process.env.TELEGRAM_CHAT_ID || "").split(",").map((s) => s.trim()).filter(Boolean);
+  const chats = (process.env.TELEGRAM_CHAT_ID || "275264199").split(",").map((s) => s.trim()).filter(Boolean);
   if (!token || !chats.length) return new Response("Server not configured", { status: 500 });
 
   const a = d.attribution || {};
