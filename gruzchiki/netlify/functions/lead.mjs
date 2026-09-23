@@ -24,6 +24,7 @@ export default async (req) => {
     "",
     `📞 <b>${esc(d.phone)}</b>`,
     d.name ? `👤 ${esc(d.name)}` : null,
+    d.telegram ? `✈️ Telegram: ${esc(d.telegram)}` : null,
     d.service ? `📦 ${esc(d.service)}` : null,
     d.comment ? `💬 ${esc(d.comment)}` : null,
     d.calc ? `🧮 ${esc(d.calc)}` : null,
