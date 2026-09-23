@@ -184,6 +184,16 @@
   .pain .yes svg,.pain .no svg{width:18px;height:18px;flex:none}
   .pain .yes svg{color:#3DDC84;margin-top:3px}
 
+  /* About */
+  .about{display:grid;gap:28px;align-items:center}
+  @media (min-width:860px){ .about{grid-template-columns:.8fr 1.2fr;gap:56px} }
+  .about-photo{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);aspect-ratio:3/4;max-height:620px;background:var(--line)}
+  .about-photo img{width:100%;height:100%;object-fit:cover;object-position:center 60%}
+  .about p{color:var(--ink-soft);margin-bottom:14px;font-size:17px}
+  .about ul{list-style:none;display:grid;gap:10px;margin:20px 0 26px}
+  .about li{display:flex;gap:10px;font-weight:600}
+  .about li svg{width:22px;height:22px;flex:none;color:var(--accent)}
+
   /* Calculator */
   .calc{display:grid;gap:22px;margin-top:34px}
   @media (min-width:960px){ .calc{grid-template-columns:1.3fr .7fr;align-items:start} }
@@ -462,6 +472,25 @@
         <div class="no"><svg><use href="#i-x"/></svg> «Приедут нетрезвые или случайные люди»</div>
         <div class="yes"><svg><use href="#i-check"/></svg> Работаем только штатной бригадой, у нас полный запрет на алкоголь. Бригадир на связи с вами от начала и до конца.</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== ABOUT ============================== -->
+<section id="about">
+  <div class="wrap about">
+    <div class="about-photo"><img src="img/gazel.jpg" alt="Наша газель с тентом и руководитель компании" width="768" height="1024" loading="lazy"></div>
+    <div>
+      <span class="eyebrow">Кто мы</span>
+      <h2>Не диспетчерская, а своя машина и своя бригада</h2>
+      <p>Многие «компании» по грузоперевозкам в Ижевске на деле просто перепродают заказы случайным водителям. Поэтому никто и не знает, кто приедет и в каком состоянии.</p>
+      <p>У нас по-другому: работаем на своей технике, грузчиков знаем лично, а за каждый заказ отвечает руководитель компании, а не безымянный оператор.</p>
+      <ul>
+        <li><svg><use href="#i-check"/></svg> Чистые, исправные машины с тентом, груз не намокнет</li>
+        <li><svg><use href="#i-check"/></svg> Штатные грузчики, без случайных людей</li>
+        <li><svg><use href="#i-check"/></svg> Руководитель лично на связи в Telegram</li>
+      </ul>
+      <a class="btn btn-accent js-open" href="#" data-src="Кто мы: заказать">Заказать машину</a>
     </div>
   </div>
 </section>
