@@ -169,7 +169,7 @@
       document.body.appendChild(holder);
       try {
         VK.Widgets.CommunityMessages("vk_community_messages", CONFIG.vkGroupId, {
-          expandTimeout: 0,
+          expandTimeout: 4000,     // через 4 сек виджет сам раскроется с приветствием — заметнее, чем просто значок
           tooltipButtonText: "Задать вопрос",
         });
       } catch (e) {}

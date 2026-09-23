@@ -320,9 +320,15 @@ def ptable(rows, note, cls=""):
 """
 
 
-def hero(eyebrow, h1, lead, ctas, note):
-    """ctas: список (href, текст, класс). Телефон добавляется всегда."""
-    btns = "\n".join(f'      <a class="btn {cls}" href="{href}">{text}</a>' for href, text, cls in ctas)
+def hero(eyebrow, h1, lead, ctas, note, vk_kind=None):
+    """ctas: список (href, текст, класс). Телефон добавляется всегда.
+    vk_kind: если задан — первой, самой заметной кнопкой ставится «Записаться ВКонтакте»."""
+    vk_btn = ""
+    if vk_kind:
+        vk_btn = (f'      <a class="btn btn-vkb js-bot" data-bot="{vk_kind}" data-goal="messenger_click" '
+                  f'href="https://vk.ru/denislarin30" target="_blank" rel="noopener">'
+                  f'<svg><use href="#i-vk"/></svg> Записаться ВКонтакте</a>\n')
+    btns = vk_btn + "\n".join(f'      <a class="btn {cls}" href="{href}">{text}</a>' for href, text, cls in ctas)
     return f"""<section class="hero">
   <div class="wrap hero-in">
     <div class="hero-text">
@@ -356,7 +362,8 @@ index += hero("Денис Ларин · грузоперевозки",
               "Газели 4 и 6 метров, грузчики, эвакуатор.<br>Подача от 30 минут.",
               [("perevozki.html", '<svg><use href="#i-truck"/></svg> Грузоперевозки', "btn-accent"),
                ("gruzchiki.html", '<svg><use href="#i-people"/></svg> Грузчики', "btn-accent")],
-              "Выберите, что нужно: у каждой услуги своя страница и свой калькулятор")
+              "Выберите, что нужно: у каждой услуги своя страница и свой калькулятор",
+              vk_kind="site")
 index += trust()
 index += """<section class="alt" id="prices">
   <div class="wrap center">
@@ -422,7 +429,8 @@ pv += '<body data-page="Грузоперевозки">\n' + sprite + "\n" + head
 pv += hero("Грузоперевозки",
            'Газель к подъезду<br>через <span class="y">30 минут.</span>',
            "Газели 4 и 6 метров по Ижевску, Удмуртии и межгороду.<br>От 1500 ₽ в час.",
-           [("#calc", "Рассчитать стоимость", "btn-accent")], "Цену называем до начала работ")
+           [("#calc", "Рассчитать стоимость", "btn-accent")], "Цену называем до начала работ",
+           vk_kind="perevozki")
 pv += trust()
 pv += calc_section("perevozki", "Сколько стоит ваша перевозка?",
                    "Несколько вопросов, и вы увидите цену. Точную сумму подтвердим по телефону.")
@@ -458,7 +466,8 @@ gr += '<body data-page="Грузчики">\n' + sprite + "\n" + header("gruzchik
 gr += hero("Грузчики и разнорабочие",
            'Грузчики в Ижевске.<br><span class="y">От 700 ₽ в час.</span>',
            "Погрузка, разгрузка, переезды, такелаж и подсобные работы.<br>Приезжаем от 30 минут.",
-           [("#calc", "Рассчитать стоимость", "btn-accent")], "Свои грузчики, без случайных людей")
+           [("#calc", "Рассчитать стоимость", "btn-accent")], "Свои грузчики, без случайных людей",
+           vk_kind="gruzchiki")
 gr += trust()
 gr += calc_section("gruzchiki", "Сколько стоят грузчики?",
                    "Выберите работу, число людей и часы, и сразу увидите цену. Точную сумму подтвердим по телефону.")
