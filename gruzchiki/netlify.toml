@@ -1,0 +1,10 @@
+# Отдельный сайт на Netlify: при подключении репозитория укажите Base directory = gruzchiki
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
