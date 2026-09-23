@@ -167,7 +167,7 @@ def contacts(page_label, service_default, cls="alt", bot_kind="perevozki"):
       <div class="contacts">
         <a class="js-tel" href="tel:+79127681545" data-goal="phone_click"><span class="ci"><svg><use href="#i-phone"/></svg></span><span><span data-cfg="phone">8-912-768-15-45</span><small>основной · WhatsApp</small></span></a>
         <a class="js-tel2" href="tel:+73412565632" data-goal="phone_click"><span class="ci"><svg><use href="#i-phone"/></svg></span><span><span data-cfg="phone2">56-56-32</span><small>городской</small></span></a>
-        <a class="js-bot" data-bot="{bot_kind}" href="https://t.me/vladospa" data-goal="messenger_click" target="_blank" rel="noopener"><span class="ci" style="background:#2AABEE;color:#fff"><svg><use href="#i-tg"/></svg></span><span>Заявка через Telegram-бот<small>калькулятор и заявка за минуту</small></span></a>
+        <a class="js-bot" data-bot="{bot_kind}" href="https://vk.ru/denislarin30" data-goal="messenger_click" target="_blank" rel="noopener"><span class="ci" style="background:#0077FF;color:#fff"><svg><use href="#i-vk"/></svg></span><span>Заявка через бота ВКонтакте<small>ответит сразу, в любое время</small></span></a>
         <a class="js-wa" href="https://wa.me/79127681545" data-goal="messenger_click" target="_blank" rel="noopener"><span class="ci"><svg><use href="#i-wa"/></svg></span><span>WhatsApp<small>напишите, ответим быстро</small></span></a>
         <a class="js-tg" href="https://t.me/vladospa" data-goal="messenger_click" target="_blank" rel="noopener"><span class="ci"><svg><use href="#i-tg"/></svg></span><span>Telegram</span></a>
         <a class="js-vk" href="https://vk.ru/denislarin30" data-goal="messenger_click" target="_blank" rel="noopener"><span class="ci"><svg><use href="#i-vk"/></svg></span><span>ВКонтакте</span></a>
@@ -252,9 +252,9 @@ def calc_section(kind, title, lead, cls="alt"):
       <div class="wiz" data-wizard="{kind}" aria-live="polite"></div>
       <aside class="wiz-side">
         <div class="card">
-          <h3>Удобнее в Telegram?</h3>
-          <p style="color:var(--ink-soft);font-size:15px;margin-bottom:14px">Тот же калькулятор в нашем Telegram-боте. Заявка за минуту.</p>
-          <a class="btn btn-tg btn-block js-bot" data-bot="{kind}" data-goal="messenger_click" href="https://t.me/vladospa" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg> Открыть бота</a>
+          <h3>Удобнее ВКонтакте?</h3>
+          <p style="color:var(--ink-soft);font-size:15px;margin-bottom:14px">Оставьте заявку нашему боту в сообщениях ВКонтакте. Это займёт минуту.</p>
+          <a class="btn btn-vkb btn-block js-bot" data-bot="{kind}" data-goal="messenger_click" href="https://vk.ru/denislarin30" target="_blank" rel="noopener"><svg><use href="#i-vk"/></svg> Написать боту</a>
         </div>
         <div class="card">
           <h3>Проще позвонить?</h3>
@@ -272,7 +272,7 @@ def calc_section(kind, title, lead, cls="alt"):
         </div>
       </aside>
     </div>
-    <a class="tg-line js-bot" data-bot="{kind}" data-goal="messenger_click" href="https://t.me/vladospa" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg> Удобнее в Telegram? Оставить заявку через бота ›</a>
+    <a class="tg-line js-bot" data-bot="{kind}" data-goal="messenger_click" href="https://vk.ru/denislarin30" target="_blank" rel="noopener"><svg><use href="#i-vk"/></svg> Удобнее ВКонтакте? Оставить заявку через бота ›</a>
   </div>
 </section>
 """
@@ -397,10 +397,10 @@ index += """<section class="alt" id="prices">
       </a>
     </div>
     <div class="tg-strip">
-      <div class="tg-txt"><span class="tg-ico"><svg><use href="#i-tg"/></svg></span><div><h3>Заявка в Telegram</h3><p>Посчитайте стоимость и оставьте заявку прямо в нашем Telegram-боте.</p></div></div>
+      <div class="tg-txt"><span class="tg-ico"><svg><use href="#i-vk"/></svg></span><div><h3>Заявка ВКонтакте</h3><p>Оставьте заявку нашему боту в сообщениях ВКонтакте: он задаст пару вопросов и передаст Денису.</p></div></div>
       <div class="cta-row">
-        <a class="btn btn-tg js-bot" data-bot="perevozki" data-goal="messenger_click" href="https://t.me/vladospa" target="_blank" rel="noopener"><svg><use href="#i-truck"/></svg> Перевозка</a>
-        <a class="btn btn-tg js-bot" data-bot="gruzchiki" data-goal="messenger_click" href="https://t.me/vladospa" target="_blank" rel="noopener"><svg><use href="#i-people"/></svg> Грузчики</a>
+        <a class="btn btn-vkb js-bot" data-bot="perevozki" data-goal="messenger_click" href="https://vk.ru/denislarin30" target="_blank" rel="noopener"><svg><use href="#i-truck"/></svg> Перевозка</a>
+        <a class="btn btn-vkb js-bot" data-bot="gruzchiki" data-goal="messenger_click" href="https://vk.ru/denislarin30" target="_blank" rel="noopener"><svg><use href="#i-people"/></svg> Грузчики</a>
       </div>
     </div>
   </div>

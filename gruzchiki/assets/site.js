@@ -17,11 +17,11 @@
     else if (a.classList.contains("m-msg")) { a.href = "tel:" + CONFIG.phoneRaw; a.removeAttribute("target"); }
     else a.style.display = "none";
   });
-  /* Кнопки «Заявка в Telegram»: открывают калькулятор внутри бота (Mini App),
-     а если бот ещё не указан в настройках — личный Telegram */
+  /* Кнопки «Заявка через бота ВКонтакте»: открывают диалог с сообществом (vk.me),
+     ref передаёт боту, откуда пришли (perevozki / gruzchiki). Пока бот не указан — страница ВК */
   $$(".js-bot").forEach(a => {
-    if (CONFIG.bot) a.href = "https://t.me/" + CONFIG.bot + "?startapp=" + (a.dataset.bot || "perevozki");
-    else if (CONFIG.telegram) a.href = "https://t.me/" + CONFIG.telegram;
+    if (CONFIG.vkBot) a.href = "https://vk.me/" + CONFIG.vkBot + "?ref=" + (a.dataset.bot || "site");
+    else if (CONFIG.vk) a.href = CONFIG.vk;
     else a.style.display = "none";
   });
   $$(".js-vk").forEach(a => { if (CONFIG.vk) a.href = CONFIG.vk; else a.style.display = "none"; });

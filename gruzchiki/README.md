@@ -34,21 +34,16 @@ Telegram вместе с расчётом из калькулятора и ме�
 3. **Deploy**, затем отправьте тестовую заявку: она должна прийти в Telegram.
 4. Подключите домен (Domain management), HTTPS Netlify выдаст сам.
 
-## Telegram-бот с калькулятором (без отдельного сервера)
+## Бот ВКонтакте
 
-Кнопки «Заявка в Telegram» на сайте открывают калькулятор прямо внутри бота.
-Пока бот не указан, они ведут в личный Telegram (`telegram` в `config.js`).
+Кнопки «Заявка через бота ВКонтакте» открывают диалог с сообществом, где работает бот.
+Впишите в `assets/config.js` короткое имя сообщества: `vkBot: "larin_pereezd"` для
+`vk.com/larin_pereezd`. Ссылка будет `vk.me/larin_pereezd?ref=perevozki` (или `gruzchiki`),
+и бот увидит в `ref`, с какой страницы пришёл клиент. Пока имя не указано, кнопки ведут
+на страницу ВКонтакте из `vk`.
 
-1. @BotFather → `/newbot` → имя и username (например `larin_pereezdy_bot`).
-   Этот же токен впишите в Netlify как `TELEGRAM_BOT_TOKEN`: заявки будут приходить от этого бота.
-2. @BotFather → `/mybots` → ваш бот → **Bot Settings → Configure Mini App → Enable Mini App**
-   → ссылка `https://ваш-сайт.netlify.app/calc.html`.
-3. Там же **Menu Button** → та же ссылка, текст кнопки «Рассчитать».
-4. **Edit Description**: «Рассчитаем стоимость перевозки и грузчиков за минуту. Нажмите «Рассчитать».»
-5. В `assets/config.js` впишите `bot: "larin_pereezdy_bot"` (без @).
-
-Ссылки вида `t.me/<бот>?startapp=perevozki` и `?startapp=gruzchiki` сразу открывают нужный
-калькулятор. Заявка из бота приходит вам так же, как с сайта, вместе с ником клиента.
+Калькулятор `calc.html` по-прежнему можно открыть как Mini App в Telegram или как
+приложение ВК (`?type=perevozki` / `?type=gruzchiki`).
 
 ## Яндекс.Метрика (обязательно для Директа)
 
