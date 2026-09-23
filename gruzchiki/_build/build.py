@@ -155,7 +155,7 @@ def faq(items, cls=""):
 """
 
 
-def contacts(page_label, service_default, cls="alt"):
+def contacts(page_label, service_default, cls="alt", bot_kind="perevozki"):
     opts = ["Квартирный переезд", "Газель с водителем", "Грузчики", "Разнорабочие", "Эвакуатор", "Другое"]
     options = "".join(f"<option{' selected' if o == service_default else ''}>{o}</option>" for o in opts)
     return f"""<section class="{cls}" id="contacts">
@@ -167,6 +167,7 @@ def contacts(page_label, service_default, cls="alt"):
       <div class="contacts">
         <a class="js-tel" href="tel:+79127681545" data-goal="phone_click"><span class="ci"><svg><use href="#i-phone"/></svg></span><span><span data-cfg="phone">8-912-768-15-45</span><small>основной · WhatsApp</small></span></a>
         <a class="js-tel2" href="tel:+73412565632" data-goal="phone_click"><span class="ci"><svg><use href="#i-phone"/></svg></span><span><span data-cfg="phone2">56-56-32</span><small>городской</small></span></a>
+        <a class="js-bot" data-bot="{bot_kind}" href="https://t.me/vladospa" data-goal="messenger_click" target="_blank" rel="noopener"><span class="ci" style="background:#2AABEE;color:#fff"><svg><use href="#i-tg"/></svg></span><span>Заявка через Telegram-бот<small>калькулятор и заявка за минуту</small></span></a>
         <a class="js-wa" href="https://wa.me/79127681545" data-goal="messenger_click" target="_blank" rel="noopener"><span class="ci"><svg><use href="#i-wa"/></svg></span><span>WhatsApp<small>напишите, ответим быстро</small></span></a>
         <a class="js-tg" href="https://t.me/vladospa" data-goal="messenger_click" target="_blank" rel="noopener"><span class="ci"><svg><use href="#i-tg"/></svg></span><span>Telegram</span></a>
         <a class="js-vk" href="https://vk.ru/denislarin30" data-goal="messenger_click" target="_blank" rel="noopener"><span class="ci"><svg><use href="#i-vk"/></svg></span><span>ВКонтакте</span></a>
@@ -251,6 +252,11 @@ def calc_section(kind, title, lead, cls="alt"):
       <div class="wiz" data-wizard="{kind}" aria-live="polite"></div>
       <aside class="wiz-side">
         <div class="card">
+          <h3>Удобнее в Telegram?</h3>
+          <p style="color:var(--ink-soft);font-size:15px;margin-bottom:14px">Тот же калькулятор в нашем Telegram-боте. Заявка за минуту.</p>
+          <a class="btn btn-tg btn-block js-bot" data-bot="{kind}" data-goal="messenger_click" href="https://t.me/vladospa" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg> Открыть бота</a>
+        </div>
+        <div class="card">
           <h3>Проще позвонить?</h3>
           <a class="big js-tel" href="tel:+79127681545" data-goal="phone_click" data-cfg="phone">8-912-768-15-45</a>
           <p style="color:var(--ink-soft);font-size:15px;margin-top:6px">Посчитаем по телефону за пару минут.</p>
@@ -266,6 +272,7 @@ def calc_section(kind, title, lead, cls="alt"):
         </div>
       </aside>
     </div>
+    <a class="tg-line js-bot" data-bot="{kind}" data-goal="messenger_click" href="https://t.me/vladospa" target="_blank" rel="noopener"><svg><use href="#i-tg"/></svg> Удобнее в Telegram? Оставить заявку через бота ›</a>
   </div>
 </section>
 """
@@ -389,6 +396,13 @@ index += """<section class="alt" id="prices">
         <svg class="bgi"><use href="#i-people"/></svg>
       </a>
     </div>
+    <div class="tg-strip">
+      <div class="tg-txt"><span class="tg-ico"><svg><use href="#i-tg"/></svg></span><div><h3>Заявка в Telegram</h3><p>Посчитайте стоимость и оставьте заявку прямо в нашем Telegram-боте.</p></div></div>
+      <div class="cta-row">
+        <a class="btn btn-tg js-bot" data-bot="perevozki" data-goal="messenger_click" href="https://t.me/vladospa" target="_blank" rel="noopener"><svg><use href="#i-truck"/></svg> Перевозка</a>
+        <a class="btn btn-tg js-bot" data-bot="gruzchiki" data-goal="messenger_click" href="https://t.me/vladospa" target="_blank" rel="noopener"><svg><use href="#i-people"/></svg> Грузчики</a>
+      </div>
+    </div>
   </div>
 </section>
 """
@@ -467,7 +481,7 @@ gr += faq(FAQ_COMMON + [
     ("Грузчики трезвые?", "Да. Работаем своей бригадой, случайных людей не отправляем."),
     ("Можно заказать грузчиков без машины?", "Да, грузчиков можно заказать отдельно. А если понадобится газель, её тоже можно добавить в калькуляторе."),
 ])
-gr += contacts("Грузчики", "Грузчики")
+gr += contacts("Грузчики", "Грузчики", bot_kind="gruzchiki")
 gr += "</main>\n" + tail(True)
 (OUT / "gruzchiki.html").write_text(gr)
 
@@ -479,9 +493,17 @@ mini += '<body class="miniapp" data-page="Telegram">\n' + sprite + """
   <div class="wiz" id="wiz" aria-live="polite"></div>
 </main>
 <script>
-  // calc.html?type=gruzchiki — калькулятор грузчиков, иначе — грузоперевозки
-  document.getElementById("wiz").dataset.wizard =
-    new URLSearchParams(location.search).get("type") === "gruzchiki" ? "gruzchiki" : "perevozki";
+  // Какой калькулятор открыть: calc.html?type=gruzchiki, ссылка t.me/<бот>?startapp=gruzchiki,
+  // а если не указано — даём выбрать.
+  (function(){
+    var tg = window.Telegram && Telegram.WebApp;
+    var t = new URLSearchParams(location.search).get("type") || (tg && tg.initDataUnsafe && tg.initDataUnsafe.start_param) || "";
+    var el = document.getElementById("wiz");
+    if (t === "gruzchiki" || t === "perevozki") { el.dataset.wizard = t; return; }
+    el.innerHTML = '<h3 class="wiz-q">Что нужно рассчитать?</h3><p class="wiz-hint">Ответьте на несколько вопросов и сразу увидите цену.</p>' +
+      '<div class="mini-choose"><a class="btn btn-accent btn-block" href="?type=perevozki"><svg><use href="#i-truck"/></svg> Грузоперевозка</a>' +
+      '<a class="btn btn-accent btn-block" href="?type=gruzchiki"><svg><use href="#i-people"/></svg> Грузчики</a></div>';
+  })();
 </script>
 <script src="assets/config.js"></script>
 <script src="assets/site.js"></script>

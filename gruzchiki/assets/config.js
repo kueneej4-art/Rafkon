@@ -13,6 +13,8 @@ window.CONFIG = {
   offer:   "Подача от 30 минут по Ижевску",
   legal:   "",                              // реквизиты для подвала, напр. "ИП Ларин Д. …, ИНН …"
   telegram:"vladospa",                      // ник без @
+  bot:     "",                              // username Telegram-бота без @, напр. "larin_pereezdy_bot".
+                                            // Пока пусто, кнопки «Заявка в Telegram» ведут в личный Telegram.
   whatsapp:"79127681545",                   // номер цифрами
   vk:      "https://vk.ru/denislarin30",     // страница ВКонтакте
   metrikaId: 0,                             // номер счётчика Яндекс.Метрики

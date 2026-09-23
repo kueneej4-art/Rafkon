@@ -364,3 +364,18 @@ body.miniapp{padding:0}
 body.miniapp .wiz{box-shadow:none;border-radius:0;min-height:100vh}
 
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* Telegram */
+.btn-tg{background:#2AABEE;color:#fff}
+.btn-tg:hover{background:#1E96D4}
+.tg-line{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:18px;font-weight:600;font-size:16px}
+.tg-line svg{width:20px;height:20px;color:#2AABEE}
+.tg-strip{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;background:var(--card);border-radius:var(--radius);padding:28px 32px;margin-top:14px}
+.tg-strip h3{font-size:24px;margin-bottom:4px}
+.tg-strip p{color:var(--ink-soft);font-size:15.5px}
+.tg-strip .cta-row{gap:10px}
+.tg-strip .tg-ico{width:52px;height:52px;border-radius:50%;background:#2AABEE;color:#fff;display:grid;place-items:center;flex:none}
+.tg-strip .tg-ico svg{width:28px;height:28px}
+.tg-strip .tg-txt{display:flex;gap:18px;align-items:center;flex:1;min-width:260px}
+.mini-choose{display:grid;gap:12px;margin-top:22px}
+@media (min-width:960px){ .tg-line{display:none} }

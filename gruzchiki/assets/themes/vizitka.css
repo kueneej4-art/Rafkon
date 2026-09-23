@@ -23,7 +23,16 @@ header.top{border-bottom:1px solid #222}
 .hero-photo{position:absolute;inset:0;max-width:none;border-radius:0;aspect-ratio:auto;margin:0}
 .hero-photo img{object-position:65% 45%}
 .hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.75) 45%,rgba(0,0,0,.2) 100%)}
-@media (min-width:900px){ .hero-photo::after{background:linear-gradient(90deg,rgba(0,0,0,.96) 0%,rgba(0,0,0,.8) 42%,rgba(0,0,0,.1) 75%)} }
+/* На компьютере фото не растягиваем на всю ширину (оно 768×1024 и расплывается):
+   ставим справа в натуральный размер и плавно растворяем в чёрном фоне */
+@media (min-width:900px){
+  .hero{min-height:min(88vh,760px)}
+  .hero-photo{left:auto;right:0;width:min(50vw,640px)}
+  .hero-photo img{object-position:center 40%}
+  .hero-photo::after{background:linear-gradient(90deg,#000 0%,rgba(0,0,0,.55) 22%,rgba(0,0,0,0) 45%),linear-gradient(0deg,rgba(0,0,0,.6) 0%,rgba(0,0,0,0) 30%)}
+  .hero-text{padding:110px 0 80px}
+}
+@media (min-width:1500px){ .hero-photo{right:calc((100vw - 1500px)/2)} .hero-photo::after{background:linear-gradient(90deg,#000 0%,rgba(0,0,0,.55) 22%,rgba(0,0,0,0) 45%),linear-gradient(270deg,#000 0%,rgba(0,0,0,0) 18%),linear-gradient(0deg,rgba(0,0,0,.6) 0%,rgba(0,0,0,0) 30%)} }
 .hero-text{position:relative;z-index:1;padding:120px 0 56px;max-width:660px}
 .hero h1{font-size:clamp(46px,8vw,96px);margin:0 0 16px;line-height:.98}
 .hero .lead-text{margin:0 0 28px;color:#D0D0D0}

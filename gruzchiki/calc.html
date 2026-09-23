@@ -50,9 +50,17 @@
   <div class="wiz" id="wiz" aria-live="polite"></div>
 </main>
 <script>
-  // calc.html?type=gruzchiki — калькулятор грузчиков, иначе — грузоперевозки
-  document.getElementById("wiz").dataset.wizard =
-    new URLSearchParams(location.search).get("type") === "gruzchiki" ? "gruzchiki" : "perevozki";
+  // Какой калькулятор открыть: calc.html?type=gruzchiki, ссылка t.me/<бот>?startapp=gruzchiki,
+  // а если не указано — даём выбрать.
+  (function(){
+    var tg = window.Telegram && Telegram.WebApp;
+    var t = new URLSearchParams(location.search).get("type") || (tg && tg.initDataUnsafe && tg.initDataUnsafe.start_param) || "";
+    var el = document.getElementById("wiz");
+    if (t === "gruzchiki" || t === "perevozki") { el.dataset.wizard = t; return; }
+    el.innerHTML = '<h3 class="wiz-q">Что нужно рассчитать?</h3><p class="wiz-hint">Ответьте на несколько вопросов и сразу увидите цену.</p>' +
+      '<div class="mini-choose"><a class="btn btn-accent btn-block" href="?type=perevozki"><svg><use href="#i-truck"/></svg> Грузоперевозка</a>' +
+      '<a class="btn btn-accent btn-block" href="?type=gruzchiki"><svg><use href="#i-people"/></svg> Грузчики</a></div>';
+  })();
 </script>
 <script src="assets/config.js"></script>
 <script src="assets/site.js"></script>

@@ -17,6 +17,13 @@
     else if (a.classList.contains("m-msg")) { a.href = "tel:" + CONFIG.phoneRaw; a.removeAttribute("target"); }
     else a.style.display = "none";
   });
+  /* Кнопки «Заявка в Telegram»: открывают калькулятор внутри бота (Mini App),
+     а если бот ещё не указан в настройках — личный Telegram */
+  $$(".js-bot").forEach(a => {
+    if (CONFIG.bot) a.href = "https://t.me/" + CONFIG.bot + "?startapp=" + (a.dataset.bot || "perevozki");
+    else if (CONFIG.telegram) a.href = "https://t.me/" + CONFIG.telegram;
+    else a.style.display = "none";
+  });
   $$(".js-vk").forEach(a => { if (CONFIG.vk) a.href = CONFIG.vk; else a.style.display = "none"; });
   $$(".js-wa").forEach(a => { if (CONFIG.whatsapp) a.href = "https://wa.me/" + CONFIG.whatsapp; else a.style.display = "none"; });
   const y = $("#year"); if (y) y.textContent = new Date().getFullYear();
