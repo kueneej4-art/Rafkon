@@ -1,0 +1,53 @@
+/* Оформление «Надёжный синий»: белый + синий, фото справа от текста */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap");
+
+:root:not(#x){
+  --bg:#FFFFFF; --bg-alt:#F1F5FC; --card:#FFFFFF; --ink:#0D1B3E; --ink-soft:#5A6784; --line:#DDE4F0;
+  --accent:#1455D9; --accent-hover:#0F46B8; --accent-ink:#FFFFFF; --accent-soft:#E6EEFD; --link:#1455D9;
+  --dark:#0A2A66; --dark-card:#12367F; --dark-ink:#FFFFFF; --dark-soft:#B8C6E6;
+  --nav-bg:rgba(255,255,255,.92); --nav-ink:#0D1B3E; --radius:18px; --shadow:0 6px 24px rgba(13,27,62,.07);
+}
+body,h1,h2,h3{font-family:"Manrope",-apple-system,"Segoe UI",sans-serif}
+h1,h2,h3{font-weight:800;letter-spacing:-.03em}
+.eyebrow{color:var(--accent);font-weight:700}
+.eyebrow.y,.hero h1 .y{color:var(--accent)!important}
+.btn{border-radius:12px;font-weight:700}
+.btn-ghost{color:var(--ink);border:1.5px solid var(--line);background:#fff}
+.btn-ghost:hover{background:var(--bg-alt)}
+header.top{box-shadow:0 1px 0 var(--line)}
+.logo-mark{background:var(--accent);color:#fff}
+.top-nav a{font-weight:600}
+
+/* Первый экран: текст слева, фото справа */
+.hero{background:linear-gradient(180deg,#F1F5FC 0%,#FFFFFF 100%);padding:40px 0 56px}
+.hero-photo{border-radius:22px;margin-top:8px;aspect-ratio:4/3}
+@media (min-width:900px){
+  .hero{text-align:left;padding:72px 0 88px}
+  .hero-in{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+  .hero .lead-text{margin:0 0 28px}
+  .hero .cta-row{justify-content:flex-start}
+  .hero-note{margin-bottom:0}
+  .hero-photo{aspect-ratio:4/5;max-height:600px;margin:0;box-shadow:0 30px 60px rgba(13,27,62,.18)}
+}
+.hero h1{font-size:clamp(40px,6vw,72px)}
+
+.svc-ico{background:var(--accent-soft);color:var(--accent)}
+.tile{border-top:5px solid var(--accent)}
+.tile .big{color:var(--accent)}
+.dir.d1{background:var(--dark)}
+.dir.d2{background:var(--accent);color:#fff}
+.dir.d1 .go{background:#fff;color:var(--dark)}
+.dir.d2 .go{background:#fff;color:var(--accent)}
+.svc,.step,.ptable,.card,.wiz{border:1px solid var(--line)}
+.alt .svc,.alt .step,.alt .ptable,.alt .wiz,.alt .tile{border-color:transparent}
+.pain .no{text-decoration-color:#FF6B6B}
+.step::before{background:var(--accent);color:#fff;border-radius:12px}
+.about li svg{color:var(--accent)}
+.wiz-ticks i.on{background:var(--accent)}
+.wiz-total{background:var(--accent-soft)}
+.wiz-total b{color:var(--accent)}
+.gift{background:var(--accent-soft)}
+.consent input{accent-color:var(--accent)}
+.mbar .m-lead{background:var(--accent);color:#fff}
+footer{background:var(--dark);color:var(--dark-soft);border:0}
+footer a{color:var(--dark-soft)}

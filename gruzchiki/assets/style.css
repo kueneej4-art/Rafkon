@@ -148,7 +148,7 @@ header.top{
 .tile .svc-ico{margin-bottom:10px}
 .tile h3{font-size:22px;letter-spacing:-.02em}
 .tile .big{font-size:clamp(38px,4.6vw,52px);font-weight:700;letter-spacing:-.035em;line-height:1.05}
-.tile .big small{font-size:.42em;font-weight:600;color:var(--ink-soft);letter-spacing:-.01em}
+.tile .big small{white-space:nowrap;font-size:.42em;font-weight:600;color:var(--ink-soft);letter-spacing:-.01em}
 .tile p{color:var(--ink-soft);font-size:15px}
 .tile .more{margin-top:auto;padding-top:14px}
 

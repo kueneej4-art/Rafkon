@@ -2,6 +2,7 @@
 """Собирает страницы сайта из общих кусков (шапка, подвал, формы)."""
 import pathlib
 
+THEME = "apple"   # оформление по умолчанию: apple, vizitka, blue, graphite
 OUT = pathlib.Path(__file__).resolve().parent.parent
 SCR = pathlib.Path(__file__).parent
 sprite = (SCR / "sprite.html").read_text()
@@ -33,6 +34,8 @@ def head(title, desc, extra=""):
 <link rel="icon" href="{ICON}">
 {FONT}
 <link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" id="theme-css" href="assets/themes/{THEME}.css">
+<script>/* предпросмотр оформления: ?theme=vizitka */try{{var t=new URLSearchParams(location.search).get("theme")||sessionStorage.getItem("theme");if(t&&/^[a-z]+$/.test(t)){{sessionStorage.setItem("theme",t);document.getElementById("theme-css").href="assets/themes/"+t+".css";}}}}catch(e){{}}</script>
 {extra}</head>
 """
 
@@ -55,7 +58,7 @@ def header(active):
       {a("#contacts", "Контакты", "contacts")}
     </nav>
     <div class="top-phone">
-      <a class="tel js-tel" href="tel:+73412565632" data-goal="phone_click"><span data-cfg="phone">56-56-32</span></a>
+      <a class="tel js-tel" href="tel:+79127681545" data-goal="phone_click"><span data-cfg="phone">8-912-768-15-45</span></a>
       <button class="btn btn-accent js-open" data-src="Шапка: перезвоните" type="button">Перезвоните мне</button>
     </div>
   </div>
@@ -126,7 +129,7 @@ def steps(cls=""):
   </div>
   <div class="wrap">
     <div class="steps">
-      <div class="step"><h3>Звонок или заявка</h3><p>Звоните на 56-56-32 или оставляете заявку. Перезваниваем за 5–10 минут.</p></div>
+      <div class="step"><h3>Звонок или заявка</h3><p>Звоните на 8-912-768-15-45 или оставляете заявку. Перезваниваем за 5–10 минут.</p></div>
       <div class="step"><h3>Цена заранее</h3><p>Уточняем объём, этажи и адреса. Называем стоимость до начала работ.</p></div>
       <div class="step"><h3>Подача от 30 минут</h3><p>Машина и бригада приезжают вовремя: грузим, везём, заносим.</p></div>
       <div class="step"><h3>Оплата по факту</h3><p>Платите, когда всё на месте и вы всё проверили.</p></div>
@@ -162,8 +165,8 @@ def contacts(page_label, service_default, cls="alt"):
       <h2>Звоните.<br>Подача от 30 минут.</h2>
       <p class="lead-text">Консультация бесплатная: подскажем, какая машина и сколько грузчиков нужно, чтобы вы не переплатили.</p>
       <div class="contacts">
-        <a class="js-tel" href="tel:+73412565632" data-goal="phone_click"><span class="ci"><svg><use href="#i-phone"/></svg></span><span><span data-cfg="phone">56-56-32</span><small>городской</small></span></a>
-        <a class="js-mob" href="tel:+79127681545" data-goal="phone_click"><span class="ci"><svg><use href="#i-phone"/></svg></span><span><span data-cfg="mobile">8-912-768-15-45</span><small>мобильный</small></span></a>
+        <a class="js-tel" href="tel:+79127681545" data-goal="phone_click"><span class="ci"><svg><use href="#i-phone"/></svg></span><span><span data-cfg="phone">8-912-768-15-45</span><small>основной · WhatsApp</small></span></a>
+        <a class="js-tel2" href="tel:+73412565632" data-goal="phone_click"><span class="ci"><svg><use href="#i-phone"/></svg></span><span><span data-cfg="phone2">56-56-32</span><small>городской</small></span></a>
         <a class="js-wa" href="https://wa.me/79127681545" data-goal="messenger_click" target="_blank" rel="noopener"><span class="ci"><svg><use href="#i-wa"/></svg></span><span>WhatsApp<small>напишите, ответим быстро</small></span></a>
         <a class="js-tg" href="https://t.me/vladospa" data-goal="messenger_click" target="_blank" rel="noopener"><span class="ci"><svg><use href="#i-tg"/></svg></span><span>Telegram</span></a>
         <a class="js-vk" href="https://vk.ru/denislarin30" data-goal="messenger_click" target="_blank" rel="noopener"><span class="ci"><svg><use href="#i-vk"/></svg></span><span>ВКонтакте</span></a>
@@ -185,7 +188,7 @@ def contacts(page_label, service_default, cls="alt"):
       <div class="form-ok" role="status">
         <svg><use href="#i-check"/></svg>
         <h3>Заявка у нас!</h3>
-        <p class="muted">Перезвоним в течение 5–10 минут. Срочно? Звоните: <a class="js-tel" href="tel:+73412565632" data-goal="phone_click"><b data-cfg="phone">56-56-32</b></a></p>
+        <p class="muted">Перезвоним в течение 5–10 минут. Срочно? Звоните: <a class="js-tel" href="tel:+79127681545" data-goal="phone_click"><b data-cfg="phone">8-912-768-15-45</b></a></p>
       </div>
     </form>
   </div>
@@ -204,7 +207,7 @@ def tail(wizard=False):
 </footer>
 
 <nav class="mbar" aria-label="Быстрая связь">
-  <a class="m-call js-tel" href="tel:+73412565632" data-goal="phone_click"><svg><use href="#i-phone"/></svg> Звонок</a>
+  <a class="m-call js-tel" href="tel:+79127681545" data-goal="phone_click"><svg><use href="#i-phone"/></svg> Звонок</a>
   <a class="m-msg js-wa" href="https://wa.me/79127681545" data-goal="messenger_click" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg> WhatsApp</a>
   <button class="m-lead js-open" data-src="Моб. панель: узнать цену" type="button">Узнать цену</button>
 </nav>
@@ -249,7 +252,7 @@ def calc_section(kind, title, lead, cls="alt"):
       <aside class="wiz-side">
         <div class="card">
           <h3>Проще позвонить?</h3>
-          <a class="big js-tel" href="tel:+73412565632" data-goal="phone_click" data-cfg="phone">56-56-32</a>
+          <a class="big js-tel" href="tel:+79127681545" data-goal="phone_click" data-cfg="phone">8-912-768-15-45</a>
           <p style="color:var(--ink-soft);font-size:15px;margin-top:6px">Посчитаем по телефону за пару минут.</p>
         </div>
         <div class="card">
@@ -310,19 +313,23 @@ def ptable(rows, note, cls=""):
 """
 
 
-def hero(eyebrow, h1, lead, cta_href, cta_text, note):
+def hero(eyebrow, h1, lead, ctas, note):
+    """ctas: список (href, текст, класс). Телефон добавляется всегда."""
+    btns = "\n".join(f'      <a class="btn {cls}" href="{href}">{text}</a>' for href, text, cls in ctas)
     return f"""<section class="hero">
-  <div class="wrap">
-    <span class="eyebrow y">{eyebrow}</span>
-    <h1>{h1}</h1>
-    <p class="lead-text">{lead}</p>
-    <div class="cta-row">
-      <a class="btn btn-accent" href="{cta_href}">{cta_text}</a>
-      <a class="btn btn-ghost js-tel" href="tel:+73412565632" data-goal="phone_click"><svg><use href="#i-phone"/></svg> <span data-cfg="phone">56-56-32</span></a>
+  <div class="wrap hero-in">
+    <div class="hero-text">
+      <span class="eyebrow y">{eyebrow}</span>
+      <h1>{h1}</h1>
+      <p class="lead-text">{lead}</p>
+      <div class="cta-row">
+{btns}
+        <a class="btn btn-ghost js-tel" href="tel:+79127681545" data-goal="phone_click"><svg><use href="#i-phone"/></svg> <span data-cfg="phone">8-912-768-15-45</span></a>
+      </div>
+      <p class="hero-note">{note}</p>
     </div>
-    <p class="hero-note">{note}</p>
+    <div class="hero-photo"><img src="img/gazel.jpg" alt="Газель компании и Денис Ларин" width="768" height="1024" fetchpriority="high"></div>
   </div>
-  <div class="wrap"><div class="hero-photo"><img src="img/gazel.jpg" alt="Газель компании и Денис Ларин" width="768" height="1024" fetchpriority="high"></div></div>
 </section>
 """
 
@@ -335,12 +342,14 @@ FAQ_COMMON = [
 
 # ============================ Главная ============================
 index = head("Переезды по Ижевску: газели, грузчики, эвакуатор · Денис Ларин",
-             "Грузоперевозки и грузчики в Ижевске. Газели 4 и 6 м от 1500 ₽/час, грузчики от 700 ₽/час, эвакуатор от 2500 ₽. Подача от 30 минут. Тел. 56-56-32.")
+             "Грузоперевозки и грузчики в Ижевске. Газели 4 и 6 м от 1500 ₽/час, грузчики от 700 ₽/час, эвакуатор от 2500 ₽. Подача от 30 минут. Тел. 8-912-768-15-45.")
 index += '<body data-page="Главная">\n' + sprite + "\n" + header("home") + '<main id="top">\n'
 index += hero("Денис Ларин · грузоперевозки",
               'Переезды<br>по Ижевску.',
               "Газели 4 и 6 метров, грузчики, эвакуатор.<br>Подача от 30 минут.",
-              "#dirs", "Рассчитать стоимость", "Звоните: ответим сразу и назовём цену")
+              [("perevozki.html", '<svg><use href="#i-truck"/></svg> Грузоперевозки', "btn-accent"),
+               ("gruzchiki.html", '<svg><use href="#i-people"/></svg> Грузчики', "btn-accent")],
+              "Выберите, что нужно: у каждой услуги своя страница и свой калькулятор")
 index += trust()
 index += """<section class="alt" id="prices">
   <div class="wrap center">
@@ -399,7 +408,7 @@ pv += '<body data-page="Грузоперевозки">\n' + sprite + "\n" + head
 pv += hero("Грузоперевозки",
            'Газель к подъезду<br>через <span class="y">30 минут.</span>',
            "Газели 4 и 6 метров по Ижевску, Удмуртии и межгороду.<br>От 1500 ₽ в час.",
-           "#calc", "Рассчитать стоимость", "Цену называем до начала работ")
+           [("#calc", "Рассчитать стоимость", "btn-accent")], "Цену называем до начала работ")
 pv += trust()
 pv += calc_section("perevozki", "Сколько стоит ваша перевозка?",
                    "Несколько вопросов, и вы увидите цену. Точную сумму подтвердим по телефону.")
@@ -435,7 +444,7 @@ gr += '<body data-page="Грузчики">\n' + sprite + "\n" + header("gruzchik
 gr += hero("Грузчики и разнорабочие",
            'Грузчики в Ижевске.<br><span class="y">От 700 ₽ в час.</span>',
            "Погрузка, разгрузка, переезды, такелаж и подсобные работы.<br>Приезжаем от 30 минут.",
-           "#calc", "Рассчитать стоимость", "Свои грузчики, без случайных людей")
+           [("#calc", "Рассчитать стоимость", "btn-accent")], "Свои грузчики, без случайных людей")
 gr += trust()
 gr += calc_section("gruzchiki", "Сколько стоят грузчики?",
                    "Выберите работу, число людей и часы, и сразу увидите цену. Точную сумму подтвердим по телефону.")

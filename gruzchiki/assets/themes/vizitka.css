@@ -1,0 +1,62 @@
+/* Оформление «Визитка»: чёрный + жёлтый, плакатные заголовки, фото на весь первый экран */
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&display=swap");
+
+:root:not(#x){
+  --bg:#0B0B0B; --bg-alt:#131313; --card:#1A1A1A; --ink:#FFFFFF; --ink-soft:#B5B5B5; --line:#2E2E2E;
+  --accent:#FFD400; --accent-hover:#FFE14D; --accent-ink:#0B0B0B; --accent-soft:#2B2400; --link:#FFD400;
+  --dark:#000; --dark-card:#1A1A1A; --dark-ink:#fff; --dark-soft:#B5B5B5;
+  --nav-bg:rgba(8,8,8,.88); --nav-ink:#fff; --radius:10px; --shadow:none;
+}
+h1,h2,h3,.tile .big,.trust b,.wiz-q,.wiz-total b,.wiz-num output,.dir h3{font-family:"Oswald","Arial Narrow",sans-serif;text-transform:uppercase;letter-spacing:.005em;font-weight:700}
+h2{font-size:clamp(34px,5.4vw,60px)}
+.eyebrow{text-transform:uppercase;font-size:14px;letter-spacing:.14em;font-weight:700}
+.eyebrow.y,.hero h1 .y{color:var(--accent)!important}
+.btn{border-radius:8px;font-weight:700;text-transform:uppercase;font-size:15px;letter-spacing:.04em}
+.btn-ghost{color:#fff;border-color:rgba(255,255,255,.4)}
+.btn-ghost:hover{background:rgba(255,255,255,.08)}
+header.top{border-bottom:1px solid #222}
+.logo small{color:#999}
+
+/* Первый экран: фото на весь экран, текст слева */
+.hero{position:relative;text-align:left;padding:0;min-height:min(92vh,780px);display:flex;align-items:flex-end;background:#000}
+.hero-in{width:100%}
+.hero-photo{position:absolute;inset:0;max-width:none;border-radius:0;aspect-ratio:auto;margin:0}
+.hero-photo img{object-position:65% 45%}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.75) 45%,rgba(0,0,0,.2) 100%)}
+@media (min-width:900px){ .hero-photo::after{background:linear-gradient(90deg,rgba(0,0,0,.96) 0%,rgba(0,0,0,.8) 42%,rgba(0,0,0,.1) 75%)} }
+.hero-text{position:relative;z-index:1;padding:120px 0 56px;max-width:660px}
+.hero h1{font-size:clamp(46px,8vw,96px);margin:0 0 16px;line-height:.98}
+.hero .lead-text{margin:0 0 28px;color:#D0D0D0}
+.hero .cta-row{justify-content:flex-start}
+.hero-note{color:#999;margin-bottom:0}
+
+.trust{border-color:#222;background:#000}
+.trust b{color:var(--accent);font-size:34px}
+
+/* Цены — жёлтые плашки, как на визитке */
+.tile{background:var(--accent);color:#0B0B0B}
+.tile p,.tile .big small{color:#3A3200}
+.tile .svc-ico{background:#0B0B0B;color:var(--accent)}
+.tile .more{color:#0B0B0B;font-weight:700}
+.dir.d1{background:#1A1A1A;border:1px solid #2E2E2E}
+.dir{border-radius:12px}
+.svc,.step,.ptable,.card,.wiz{border:1px solid var(--line)}
+.dark-sec{background:#000;border-top:1px solid #222;border-bottom:1px solid #222}
+.pain .yes{font-size:17px}
+.about-photo{border-radius:12px}
+.about li svg{color:var(--accent)}
+.step::before{background:var(--accent);color:#0B0B0B;border-radius:8px}
+.field input,.field select,.field textarea,.wiz-input{background:#0B0B0B}
+.wiz-opt{background:#141414}
+.wiz-opt.sel{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.wiz-opt.sel .ck{background:var(--accent);border-color:var(--accent)}
+.wiz-opt .ck svg{color:#0B0B0B}
+.wiz-ticks i.on{background:var(--accent)}
+.wiz-total{background:var(--accent);color:#0B0B0B}
+.wiz-total small,.wiz-total div{color:#3A3200!important}
+.wiz-side li svg{color:var(--accent)}
+.consent input{accent-color:var(--accent)}
+.mbar{border-top-color:#222}
+.mbar .m-call,.mbar .m-msg{background:#1F1F1F;color:#fff}
+footer{background:#000;border-color:#222}
+.tile .big{font-size:clamp(36px,4.2vw,50px)}

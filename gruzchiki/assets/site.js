@@ -11,7 +11,7 @@
   /* ---------- Контакты из настроек ---------- */
   $$("[data-cfg]").forEach(el => { const v = CONFIG[el.dataset.cfg]; if (v) el.textContent = v; else if ("optional" in el.dataset) el.remove(); });
   $$(".js-tel").forEach(a => a.href = "tel:" + CONFIG.phoneRaw);
-  $$(".js-mob").forEach(a => a.href = "tel:" + CONFIG.mobileRaw);
+  $$(".js-tel2").forEach(a => a.href = "tel:" + CONFIG.phone2Raw);
   $$(".js-tg").forEach(a => {
     if (CONFIG.telegram) a.href = "https://t.me/" + CONFIG.telegram;
     else if (a.classList.contains("m-msg")) { a.href = "tel:" + CONFIG.phoneRaw; a.removeAttribute("target"); }

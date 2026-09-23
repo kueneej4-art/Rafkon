@@ -16,6 +16,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" id="theme-css" href="assets/themes/apple.css">
+<script>/* предпросмотр оформления: ?theme=vizitka */try{var t=new URLSearchParams(location.search).get("theme")||sessionStorage.getItem("theme");if(t&&/^[a-z]+$/.test(t)){sessionStorage.setItem("theme",t);document.getElementById("theme-css").href="assets/themes/"+t+".css";}}catch(e){}</script>
 </head>
 <body data-page="Грузчики">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -56,24 +58,26 @@
       <a href="#contacts">Контакты</a>
     </nav>
     <div class="top-phone">
-      <a class="tel js-tel" href="tel:+73412565632" data-goal="phone_click"><span data-cfg="phone">56-56-32</span></a>
+      <a class="tel js-tel" href="tel:+79127681545" data-goal="phone_click"><span data-cfg="phone">8-912-768-15-45</span></a>
       <button class="btn btn-accent js-open" data-src="Шапка: перезвоните" type="button">Перезвоните мне</button>
     </div>
   </div>
 </header>
 <main id="top">
 <section class="hero">
-  <div class="wrap">
-    <span class="eyebrow y">Грузчики и разнорабочие</span>
-    <h1>Грузчики в Ижевске.<br><span class="y">От 700 ₽ в час.</span></h1>
-    <p class="lead-text">Погрузка, разгрузка, переезды, такелаж и подсобные работы.<br>Приезжаем от 30 минут.</p>
-    <div class="cta-row">
+  <div class="wrap hero-in">
+    <div class="hero-text">
+      <span class="eyebrow y">Грузчики и разнорабочие</span>
+      <h1>Грузчики в Ижевске.<br><span class="y">От 700 ₽ в час.</span></h1>
+      <p class="lead-text">Погрузка, разгрузка, переезды, такелаж и подсобные работы.<br>Приезжаем от 30 минут.</p>
+      <div class="cta-row">
       <a class="btn btn-accent" href="#calc">Рассчитать стоимость</a>
-      <a class="btn btn-ghost js-tel" href="tel:+73412565632" data-goal="phone_click"><svg><use href="#i-phone"/></svg> <span data-cfg="phone">56-56-32</span></a>
+        <a class="btn btn-ghost js-tel" href="tel:+79127681545" data-goal="phone_click"><svg><use href="#i-phone"/></svg> <span data-cfg="phone">8-912-768-15-45</span></a>
+      </div>
+      <p class="hero-note">Свои грузчики, без случайных людей</p>
     </div>
-    <p class="hero-note">Свои грузчики, без случайных людей</p>
+    <div class="hero-photo"><img src="img/gazel.jpg" alt="Газель компании и Денис Ларин" width="768" height="1024" fetchpriority="high"></div>
   </div>
-  <div class="wrap"><div class="hero-photo"><img src="img/gazel.jpg" alt="Газель компании и Денис Ларин" width="768" height="1024" fetchpriority="high"></div></div>
 </section>
 <div class="trust">
   <div class="wrap trust-grid">
@@ -95,7 +99,7 @@
       <aside class="wiz-side">
         <div class="card">
           <h3>Проще позвонить?</h3>
-          <a class="big js-tel" href="tel:+73412565632" data-goal="phone_click" data-cfg="phone">56-56-32</a>
+          <a class="big js-tel" href="tel:+79127681545" data-goal="phone_click" data-cfg="phone">8-912-768-15-45</a>
           <p style="color:var(--ink-soft);font-size:15px;margin-top:6px">Посчитаем по телефону за пару минут.</p>
         </div>
         <div class="card">
@@ -230,8 +234,8 @@
       <h2>Звоните.<br>Подача от 30 минут.</h2>
       <p class="lead-text">Консультация бесплатная: подскажем, какая машина и сколько грузчиков нужно, чтобы вы не переплатили.</p>
       <div class="contacts">
-        <a class="js-tel" href="tel:+73412565632" data-goal="phone_click"><span class="ci"><svg><use href="#i-phone"/></svg></span><span><span data-cfg="phone">56-56-32</span><small>городской</small></span></a>
-        <a class="js-mob" href="tel:+79127681545" data-goal="phone_click"><span class="ci"><svg><use href="#i-phone"/></svg></span><span><span data-cfg="mobile">8-912-768-15-45</span><small>мобильный</small></span></a>
+        <a class="js-tel" href="tel:+79127681545" data-goal="phone_click"><span class="ci"><svg><use href="#i-phone"/></svg></span><span><span data-cfg="phone">8-912-768-15-45</span><small>основной · WhatsApp</small></span></a>
+        <a class="js-tel2" href="tel:+73412565632" data-goal="phone_click"><span class="ci"><svg><use href="#i-phone"/></svg></span><span><span data-cfg="phone2">56-56-32</span><small>городской</small></span></a>
         <a class="js-wa" href="https://wa.me/79127681545" data-goal="messenger_click" target="_blank" rel="noopener"><span class="ci"><svg><use href="#i-wa"/></svg></span><span>WhatsApp<small>напишите, ответим быстро</small></span></a>
         <a class="js-tg" href="https://t.me/vladospa" data-goal="messenger_click" target="_blank" rel="noopener"><span class="ci"><svg><use href="#i-tg"/></svg></span><span>Telegram</span></a>
         <a class="js-vk" href="https://vk.ru/denislarin30" data-goal="messenger_click" target="_blank" rel="noopener"><span class="ci"><svg><use href="#i-vk"/></svg></span><span>ВКонтакте</span></a>
@@ -253,7 +257,7 @@
       <div class="form-ok" role="status">
         <svg><use href="#i-check"/></svg>
         <h3>Заявка у нас!</h3>
-        <p class="muted">Перезвоним в течение 5–10 минут. Срочно? Звоните: <a class="js-tel" href="tel:+73412565632" data-goal="phone_click"><b data-cfg="phone">56-56-32</b></a></p>
+        <p class="muted">Перезвоним в течение 5–10 минут. Срочно? Звоните: <a class="js-tel" href="tel:+79127681545" data-goal="phone_click"><b data-cfg="phone">8-912-768-15-45</b></a></p>
       </div>
     </form>
   </div>
@@ -268,7 +272,7 @@
 </footer>
 
 <nav class="mbar" aria-label="Быстрая связь">
-  <a class="m-call js-tel" href="tel:+73412565632" data-goal="phone_click"><svg><use href="#i-phone"/></svg> Звонок</a>
+  <a class="m-call js-tel" href="tel:+79127681545" data-goal="phone_click"><svg><use href="#i-phone"/></svg> Звонок</a>
   <a class="m-msg js-wa" href="https://wa.me/79127681545" data-goal="messenger_click" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg> WhatsApp</a>
   <button class="m-lead js-open" data-src="Моб. панель: узнать цену" type="button">Узнать цену</button>
 </nav>
