@@ -2,7 +2,7 @@
 """Собирает страницы сайта из общих кусков (шапка, подвал, формы)."""
 import pathlib
 
-THEME = "apple"   # оформление по умолчанию: apple, vizitka, blue, graphite
+THEME = "vizitka"   # оформление по умолчанию: vizitka, apple, blue, graphite
 OUT = pathlib.Path(__file__).resolve().parent.parent
 SCR = pathlib.Path(__file__).parent
 sprite = (SCR / "sprite.html").read_text()
