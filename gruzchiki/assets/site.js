@@ -158,5 +158,28 @@
     }
   }));
 
+  /* ---------- Плавающая кнопка «Написать сообщение» ВКонтакте ---------- */
+  /* Официальный виджет VK Open API: открывает диалог с сообществом/ботом
+     прямо на странице, без перехода на vk.ru. Показывается, только если
+     в config.js указан vkGroupId (числовой id из vk.ru/club<id>). */
+  if (CONFIG.vkGroupId && window.innerWidth >= 900) {
+    const mount = () => {
+      const holder = document.createElement("div");
+      holder.id = "vk_community_messages";
+      document.body.appendChild(holder);
+      try {
+        VK.Widgets.CommunityMessages("vk_community_messages", CONFIG.vkGroupId, {
+          expandTimeout: 0,
+          tooltipButtonText: "Задать вопрос",
+        });
+      } catch (e) {}
+    };
+    const script = document.createElement("script");
+    script.src = "https://vk.com/js/api/openapi.js?169";
+    script.async = true;
+    script.onload = mount;
+    document.head.appendChild(script);
+  } // на телефоне виджет не грузим — там уже есть нижняя панель с кнопками связи
+
   window.Site = { CONFIG, $, $$, fmt, goal, sendLead, validate, failHtml, bindPhone, tg };
 })();
